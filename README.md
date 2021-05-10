@@ -1,5 +1,5 @@
 # LeetCode_Learning
-创建本项目的目的是为了开始练习LeetCode题目
+创建本项目的目的是为了练习LeetCode题目并记录，以提升编程能力。
 ## Array
 
 ## LinkList
