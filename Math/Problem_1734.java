@@ -18,9 +18,29 @@ package Math;
 * 链接：https://leetcode-cn.com/problems/decode-xored-permutation
 * */
 
+import java.util.Arrays;
+
 public class Problem_1734 {
+    public static int[] decode(int[] encoded) {
+        int n = encoded.length + 1;
+        int[] perm = new int[n];
+        int total = 0;
+        for(int i = 1; i <= n; i++){
+            total ^= i;
+        }
+        int odd = 0;
+        for(int i = 1; i < n - 1;i+=2){
+            odd ^= encoded[i];
+        }
+        perm[0] = total ^ odd;
+        for(int i = 0; i<n-1;i++){
+            perm[i+1] = perm[i] ^ encoded[i];
+        }
+        return perm;
+    }
 
     public static void main(String[] args) {
+        System.out.println(Arrays.toString(decode(new int[]{6, 5, 4, 6})));
 
     }
 }
