@@ -12,6 +12,10 @@
 [Simple 872. 叶子相似的树](https://leetcode-cn.com/problems/leaf-similar-trees) ：深度优先遍历得到两棵树的叶值序列后比较两个序列是否相等。
 
 ## Math
+[Middle 1310. 子数组异或查询](https://leetcode-cn.com/problems/decode-xored-permutation) ：暴力破解方法也可以解决但容易超时，
+可以先逐个计算前k个数字的异或操作存储在数组XOR，在计算Li 到 Ri 的值时，读取XOR第Li和Ri的值进行异或操作，
+0~Li的数会因异或操作的自反性相互抵消，即可得到最终结果。
+
 [Middle 1734. 解码异或后的排列](https://leetcode-cn.com/problems/decode-xored-permutation) ：
 由 ![image](pics/Problem_1734/Problem_1734_1.gif) 我们可以得到 ![image](pics/Problem_1734/Problem_1734_2.gif)
 
