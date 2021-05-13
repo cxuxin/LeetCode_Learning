@@ -1,5 +1,6 @@
 package Math;
 /*
+* Middle 1734. 解码异或后的排列
 * 给你一个整数数组perm，它是前n个正整数的排列，且n是个 奇数。
 * 它被加密成另一个长度为 n - 1的整数数组encoded，满足encoded[i] = perm[i] XOR perm[i + 1]。
 * 比方说，如果perm = [1,3,2]，那么encoded = [2,1]。

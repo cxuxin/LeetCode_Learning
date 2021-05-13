@@ -9,7 +9,16 @@
 ## String
 
 ## Tree
-[Simple 872. 叶子相似的树](https://leetcode-cn.com/problems/leaf-similar-trees) ：深度优先遍历得到两棵树的叶值序列后比较两个序列是否相等。
+[Simple 872. 叶子相似的树](https://leetcode-cn.com/problems/leaf-similar-trees) ：
+深度优先遍历得到两棵树的叶值序列后比较两个序列是否相等。
+
+## DP
+[Hard 1269. 停在原地的方案数](https://leetcode-cn.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps) :
+运用动态规划 用 dp [i][j] 表示在 i 步操作之后，指针位于下标 j 的方案数，其中0≤i≤steps，j≤min(arrLen-1,steps)
+每一步操作中，指针可以向左或向右移动 1 步，或者停在原地。因此，当 1≤i≤steps 时，状态 dp[i][j] 可以从 dp[i-1][j-1]、dp[i-1][j] 和 dp[i-1][j+1] 这三个状态转移得到。状态转移方程如下：
+
+dp[i][j]=dp[i-1][j-1]+dp[i-1][j]+dp[i-1][j+1]
+
 
 ## Math
 [Middle 1310. 子数组异或查询](https://leetcode-cn.com/problems/decode-xored-permutation) ：暴力破解方法也可以解决但容易超时，
