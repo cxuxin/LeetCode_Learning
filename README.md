@@ -12,6 +12,7 @@
 ## Tree
 [Simple 872. 叶子相似的树](https://leetcode-cn.com/problems/leaf-similar-trees) ：
 深度优先遍历得到两棵树的叶值序列后比较两个序列是否相等。
+
 [Simple 993. 二叉树的堂兄弟节点](https://leetcode-cn.com/problems/cousins-in-binary-tree) ：深度优先搜索得到目标值的「深度」以及「父节点」两个参数即可。
 ## DP
 [Hard 1269. 停在原地的方案数](https://leetcode-cn.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps) :
