@@ -26,6 +26,8 @@ perm数组是由1~n的整数排列而成，由此我们可以计算 ![image](pic
 由异或操作的自反性可以得到
 ![image](pics/Problem_1734/Problem_1734_6.gif)
 
+## DP
+[Hard 664. 奇怪的打印机](https://leetcode-cn.com/problems/strange-printer) 
 
 
 
