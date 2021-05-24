@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
+* Simple 872. 叶子相似的树
 * 请考虑一棵二叉树上所有的叶子，这些叶子的值按从左到右的顺序排列形成一个叶值序列 。
 * 如果有两棵二叉树的叶值序列是相同，那么我们就认为它们是叶相似的。
 * 如果给定的两个根结点分别为root1 和root2的树是叶相似的，则返回true；否则返回 false 。
