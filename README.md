@@ -20,6 +20,8 @@
 
 [Simple 993. 二叉树的堂兄弟节点](https://leetcode-cn.com/problems/cousins-in-binary-tree) ：深度优先搜索得到目标值的「深度」以及「父节点」两个参数即可。
 ## DP
+[Hard 664. 奇怪的打印机](https://leetcode-cn.com/problems/strange-printer)
+
 [Hard 1269. 停在原地的方案数](https://leetcode-cn.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps) :
 运用动态规划 用 dp [i][j] 表示在 i 步操作之后，指针位于下标 j 的方案数，其中0≤i≤steps，j≤min(arrLen-1,steps)
 每一步操作中，指针可以向左或向右移动 1 步，或者停在原地。因此，当 1≤i≤steps 时，状态 dp[i][j] 可以从 dp[i-1][j-1]、dp[i-1][j] 和 dp[i-1][j+1] 这三个状态转移得到。状态转移方程如下：
@@ -45,7 +47,3 @@ perm数组是由1~n的整数排列而成，由此我们可以计算 ![image](pic
 
 由异或操作的自反性可以得到
 ![image](pics/Problem_1734/Problem_1734_6.gif)
-
-
-
-
