@@ -6,6 +6,9 @@
 [Middle 1442. 形成两个异或相等数组的三元组数目](https://leetcode-cn.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor/) ：
 若 `a=b`，则有`S_{i}⊕ S_{j}=S_{j}⊕ S_{k+1}` 即`S_i=S_{k+1}`
 
+## Bit
+[Middle 477. 汉明距离总和](https://leetcode-cn.com/problems/total-hamming-distance) ：先统计在某个位置上1的个数c，则给位置不同的位数有c * (n-c) 再相加即可。
+
 ## LinkList
 
 ## String
