@@ -12,8 +12,8 @@ import java.sql.SQLOutput;
  * 所以答案为：
  * HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 + 2 = 6.
  * 注意:
- * 数组中元素的范围为从 0到 10^9。
- * 数组的长度不超过 10^4。
+ * 数组中元素的范围为从0到10^9。
+ * 数组的长度不超过10^4。
  * 链接：https://leetcode-cn.com/problems/total-hamming-distance
  */
 public class Problem_477 {
