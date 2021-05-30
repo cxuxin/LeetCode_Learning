@@ -9,6 +9,7 @@
 ## Bit
 [Middle 477. 汉明距离总和](https://leetcode-cn.com/problems/total-hamming-distance) ：先统计在某个位置上1的个数c，则给位置不同的位数有c * (n-c) 再相加即可。
 
+[Simple 231. 2 的幂](https://leetcode-cn.com/problems/power-of-two/) ： 二的幂次满足特点：1. n & (n-1) == 0; 2. n & (-n) == n; 3. 二进制位上只有一个1.   可挑选以上一个特点或使用递归进行判断。
 ## LinkList
 
 ## String
