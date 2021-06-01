@@ -35,6 +35,8 @@ dp[i][j]=dp[i-1][j-1]+dp[i-1][j]+dp[i-1][j+1]
 可以先逐个计算前k个数字的异或操作存储在数组XOR，在计算Li 到 Ri 的值时，读取XOR第Li和Ri的值进行异或操作，
 0~Li的数会因异或操作的自反性相互抵消，即可得到最终结果。
 
+[Middle 1744. 你能在你最喜欢的那天吃到你最喜欢的糖果吗？](https://leetcode-cn.com/problems/can-you-eat-your-favorite-candy-on-your-favorite-day/) ： 计算能吃到的糖果的位置区间和目标糖果的位置区间，验证两个区间是否存在交集即可。由于题目涉及数字较大，需要用long存储。
+
 [Middle 1734. 解码异或后的排列](https://leetcode-cn.com/problems/decode-xored-permutation) ：
 由 ![image](pics/Problem_1734/Problem_1734_1.gif) 我们可以得到 ![image](pics/Problem_1734/Problem_1734_2.gif)
 
