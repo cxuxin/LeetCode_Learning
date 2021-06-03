@@ -8,6 +8,7 @@
 
 [Middle 523. 连续的子数组和](https://leetcode-cn.com/problems/continuous-subarray-sum/) ： 前缀和+哈希  前缀和相减得到[i,j]的和，若这个数是k的倍数，那么i和j位置除以k的余数相同。所以只需存储余数即可，查看是否有位置相距不小于2的相同的余数。
 
+[Middle 525. 连续数组](https://leetcode-cn.com/problems/contiguous-array/) 前缀和+哈希  与523相似，0与1的数量相同，如果把0看成-1，就可以看成是和为零的最长子数组长度。利用哈希存储前缀和，当两个值相等时，就是区间内和为零的情况。
 ## Bit
 [Middle 477. 汉明距离总和](https://leetcode-cn.com/problems/total-hamming-distance) ：先统计在某个位置上1的个数c，则给位置不同的位数有c * (n-c) 再相加即可。
 
