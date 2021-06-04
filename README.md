@@ -14,6 +14,7 @@
 
 [Simple 231. 2 的幂](https://leetcode-cn.com/problems/power-of-two/) ： 二的幂次满足特点：1. n & (n-1) == 0; 2. n & (-n) == n; 3. 二进制位上只有一个1.   可挑选以上一个特点或使用递归进行判断。
 ## LinkList
+[Simple 160. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/) ： 一次遍历headA哈希存储现有节点，再遍历headB查看是否含有A中的节点。
 
 ## String
 [Middle 12. 整数转罗马数字](https://leetcode-cn.com/problems/integer-to-roman)
