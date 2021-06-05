@@ -1,7 +1,6 @@
 package LinkList;
 
 import utils.ListNode;
-
 import java.util.HashSet;
 
 /*

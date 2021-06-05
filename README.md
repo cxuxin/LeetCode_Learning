@@ -16,6 +16,7 @@
 ## LinkList
 [Simple 160. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/) ： 一次遍历headA哈希存储现有节点，再遍历headB查看是否含有A中的节点。
 
+[Simple 203. 移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements/) ： 按照链表迭代即可。
 ## String
 [Middle 12. 整数转罗马数字](https://leetcode-cn.com/problems/integer-to-roman)
 
