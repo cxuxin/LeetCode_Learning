@@ -26,6 +26,10 @@
 
 [Simple 993. 二叉树的堂兄弟节点](https://leetcode-cn.com/problems/cousins-in-binary-tree) ：深度优先搜索得到目标值的「深度」以及「父节点」两个参数即可。
 ## DP
+[Middle 494. 目标和](https://leetcode-cn.com/problems/target-sum/) ：1.遍历所有排列情况，统计和为target的个数； 2.设所有元素和为sum，负数的整数部分和为neg，则正数部分为sum-neg，
+目标要求(sum-neg)-neg = target，可得neg = (sum - target) / 2，因此题目转化成在数组 nums 中选取若干元素，使得这些元素之和等于 neg。利用动态规划dp[i][j] 表示在数组 nums 的前 i 个数中选取元素，使得这些元素之和等于 j 的方案数。
+转移方程如下：![image](pics/Problem_494/Problem_494.png)
+
 [Hard 664. 奇怪的打印机](https://leetcode-cn.com/problems/strange-printer)
 
 [Hard 1269. 停在原地的方案数](https://leetcode-cn.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps) :
