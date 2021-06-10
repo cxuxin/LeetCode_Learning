@@ -28,17 +28,23 @@
 ## DP
 [Middle 494. 目标和](https://leetcode-cn.com/problems/target-sum/) ：1.遍历所有排列情况，统计和为target的个数； 2.设所有元素和为sum，负数的整数部分和为neg，则正数部分为sum-neg，
 目标要求(sum-neg)-neg = target，可得neg = (sum - target) / 2，因此题目转化成在数组 nums 中选取若干元素，使得这些元素之和等于 neg。利用动态规划dp[i][j] 表示在数组 nums 的前 i 个数中选取元素，使得这些元素之和等于 j 的方案数。
+
 转移方程如下：![image](pics/Problem_494/Problem_494.png)
+
+[Middle 518. 零钱兑换 II](https://leetcode-cn.com/problems/coin-change-2/) ：dp[x] 表示金额之和等于 x 的硬币组合数，目标是求 dp[amount]。
+![image](pics/Problem_518/Problem_518.png)
 
 [Hard 664. 奇怪的打印机](https://leetcode-cn.com/problems/strange-printer)
 
 [Hard 879. 盈利计划](https://leetcode-cn.com/problems/profitable-schemes/) ： 两个条件限制的背包问题。 定义一个三维数组 dp 作为动态规划的状态，
 其中 dp[i][j][k] 表示在前 i 个工作中选择了 j 个员工，并且满足工作利润至少为 k 的情况下的盈利计划的总数目。
+
 转移方程如下：![image](pics/Problem_879/Problem_879.png)
 
 [Middle 1049. 最后一块石头的重量 II](https://leetcode-cn.com/problems/last-stone-weight-ii/) ：同494题，将问题转化为背包问题，选其中部分数为负，结果为使得所有数和的绝对值最小。
 记石头的总重量为ki=−1 的石头的重量之和为 neg，则其余 ki=1 的石头的重量之和为 sum−neg。则有 ans = sum−2⋅neg 要使最后一块石头的重量尽可能地小，neg 需要在不超过 sum/2 的前提下尽可能地大。
 定义二维布尔数组 dp，其中dp[i+1][j] 表示前 i 个石头能否凑出重量 j。 dp[0][] 为不选任何石头的状态，因此除了 dp[0][0] 为真，其余 dp[0][j] 全为假。
+
 转移方程如下：![image](pics/Problem_1049/Problem_1049.png)
 
 
