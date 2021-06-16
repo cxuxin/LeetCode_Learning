@@ -36,6 +36,9 @@
 
 [Hard 664. 奇怪的打印机](https://leetcode-cn.com/problems/strange-printer)
 
+[Middle 877. 石子游戏](https://leetcode-cn.com/problems/stone-game/) ：
+![image](pics/Problem_877/Problem_877.png)
+
 [Hard 879. 盈利计划](https://leetcode-cn.com/problems/profitable-schemes/) ： 两个条件限制的背包问题。 定义一个三维数组 dp 作为动态规划的状态，
 其中 dp[i][j][k] 表示在前 i 个工作中选择了 j 个员工，并且满足工作利润至少为 k 的情况下的盈利计划的总数目。
 
