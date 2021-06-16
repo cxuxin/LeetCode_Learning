@@ -18,6 +18,8 @@
 
 [Simple 203. 移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements/) ： 按照链表迭代即可。
 ## String
+[Middle 5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) ：定义dp(i,j) 表示字符串 s 的第 i 到 j 个字母组成的串是否为回文串，遍历每个长度，若s[i] == s[j]，则dp[i][j] = dp[i+1][j-1]
+
 [Middle 12. 整数转罗马数字](https://leetcode-cn.com/problems/integer-to-roman)
 
 ## Tree
