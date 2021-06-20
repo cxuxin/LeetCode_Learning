@@ -33,6 +33,8 @@ import java.util.HashMap;
  * 0 <= nums[i] <= 109
  * 0 <= sum(nums[i]) <= 231 - 1
  * 1 <= k <= 231 - 1
+ *
+ * 链接：https://leetcode-cn.com/problems/continuous-subarray-sum/
  */
 
 public class Problem_523 {
