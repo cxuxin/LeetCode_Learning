@@ -2,6 +2,7 @@ package Tree;
 
 import utils.TreeNode;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -14,11 +15,11 @@ import java.util.List;
 public class Problem_872 {
 
     public static boolean leafSimilar(TreeNode root1, TreeNode root2) {
-        List<Integer> seq1 = new ArrayList<Integer>();
+        List<Integer> seq1 = new ArrayList<>();
         if (root1 != null) {
             dfs(root1, seq1);
         }
-        List<Integer> seq2 = new ArrayList<Integer>();
+        List<Integer> seq2 = new ArrayList<>();
         if (root2 != null) {
             dfs(root2, seq2);
         }
@@ -40,10 +41,11 @@ public class Problem_872 {
 
 
     public static void main(String[] args) {
-        char[] tree1 = {3,5,1,6,2,9,8,'#','#',7,4};
-        char[] tree2 = {3,5,1,6,7,4,2,'#','#','#','#','#','#',9,8};
-        TreeNode root1 = new TreeNode().buildTree(tree1,0,tree1.length);
-        TreeNode root2 = new TreeNode().buildTree(tree2,0,tree2.length);
+        ArrayList<Integer> tree1 = new ArrayList<>(Arrays.asList(3,5,1,6,2,9,8,null,null,7,4));
+        ArrayList<Integer> tree2 = new ArrayList<>(Arrays.asList(3,5,1,6,7,4,2,null,null,null,null,null,null,9,8));
+        TreeNode root1  = TreeNode.createTree(tree1,0,tree1.size());
+        TreeNode root2  = TreeNode.createTree(tree2,0,tree2.size());
+
         System.out.println(leafSimilar(root1, root2));
     }
 }

@@ -1,6 +1,9 @@
 package Tree;
 import utils.TreeNode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /*
 * 993. 二叉树的堂兄弟节点
 * 在二叉树中，根节点位于深度 0 处，每个深度为 k 的节点的子节点位于深度 k+1 处。
@@ -64,8 +67,8 @@ public class Problem_993 {
     }
 
     public static void main(String[] args) {
-        char[] tree = new char[]{1,2,3,'#',4,'#',5};
-        TreeNode root  = new TreeNode().buildTree(tree,0,tree.length);
+        ArrayList<Integer> tree = new ArrayList<>(Arrays.asList(1,2,3,null,4,null,5));
+        TreeNode root  = TreeNode.createTree(tree,0,tree.size());
         System.out.println(new Problem_993().isCousins(root, 3,4));
     }
 }
