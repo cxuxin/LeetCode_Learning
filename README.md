@@ -63,6 +63,8 @@ dp[i][j]=dp[i-1][j-1]+dp[i-1][j]+dp[i-1][j+1]
 ## Math
 [Middle 279. 完全平方数](https://leetcode-cn.com/problems/perfect-squares/solution/) ：动态规划 dp[i] 表示最少需要多少个数的平方来表示整数 i。 枚举区间[1，Math.sqrt(i)] 取其中最小值。
 
+[Middle 909. 蛇梯棋](https://leetcode-cn.com/problems/snakes-and-ladders/) ：广度优先算法
+
 [Middle 1310. 子数组异或查询](https://leetcode-cn.com/problems/decode-xored-permutation) ：暴力破解方法也可以解决但容易超时，
 可以先逐个计算前k个数字的异或操作存储在数组XOR，在计算Li 到 Ri 的值时，读取XOR第Li和Ri的值进行异或操作，
 0~Li的数会因异或操作的自反性相互抵消，即可得到最终结果。
