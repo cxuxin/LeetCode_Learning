@@ -84,3 +84,17 @@ perm数组是由1~n的整数排列而成，由此我们可以计算 ![image](pic
 
 由异或操作的自反性可以得到
 ![image](pics/Problem_1734/Problem_1734_6.gif)
+
+
+```sql
+    SELECT Avg()e.employee_id, e.employee_name, d.dept_name FROM EmployeeTB AS e INNER JOIN DeptTB AS d ON e.dept_id=d.dept_id;
+
+表 A：学号 student_id integer、姓名 name string、班级 class string
+表 B：学号 student_id integer、学科 subject string、成绩 score float
+请问【各班语文平均分】如何计算？
+
+SELECT Avg(score)
+FROM table_name
+WHERE column_name operator value
+GROUP BY class;
+```
