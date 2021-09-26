@@ -116,10 +116,29 @@ public class test {
 
         return ret;
     }
-
+    public int sayOne(int n,int m){
+        return n;
+    }
+    public String sayOne(int n){
+        return String.valueOf(n);
+    }
 
     public static void main(String[] args) {
+        Integer a = 128, b = 128, c = 127, d = 127;
+        System.out.println(a == b);
+        System.out.println(c == d);
 
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        hashMap.put(1,2);
+        hashMap.put(3,4);
+        hashMap.put(2,4);
+        hashMap.put(5,6);
+        for(Map.Entry<Integer, Integer> entry : hashMap.entrySet()){
+            System.out.println(entry);
+            int m = entry.getValue();
+            System.out.println(m);
+        }
+        System.out.println(hashMap.entrySet());
     }
 }
 
