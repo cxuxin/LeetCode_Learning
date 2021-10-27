@@ -22,9 +22,17 @@ public class test {
         }
 
     }
+    int a = 1;
 
-    public static void main(String[] args) {
-        problem();
+    public void addtest(int a){
+        a++;
     }
+    public static void main(String[] args) {
+        test test1 = new test();
+        int a = 1;
+        test1.addtest(a);
+        System.out.println(a);
 
+//        problem();
+    }
 }

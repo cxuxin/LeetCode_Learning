@@ -8,7 +8,7 @@ import java.util.PriorityQueue;
 public class Problem_1976 {
     public static int countPaths(int n, int[][] roads) {
         final int MOD = (int) (1e9 + 7);
-        long[] time = new long[n]; // 表示从路口0触发到路口i的最短用时
+        long[] time = new long[n]; // 表示从路口0出发到路口i的最短用时
         long[] count = new long[n]; // 表示在最短用时情况下从路口0出发到路口i对应的方案数
         Arrays.fill(time, -1);
         Arrays.fill(count, 0);

@@ -4,16 +4,15 @@ public class Interview_1010 {
     public static void main(String[] args) {
 //        Scanner in = new Scanner(System.in);
 
-        String s = "-12+(4+1)*2^(3^2-6)-7";
-        if(isAvail(s)){
-            System.out.println(getRes(s));
-        }else{
-            System.out.println("ERROR");
-        }
-//        int a = 4;
-//        int b = 8;
-//        s = s.replaceFirst(s.substring(a,b + 1), String.valueOf(5));
-//        System.out.println(s);
+//        String s = "-12+(4+1)*2^(3^2-6)-7";
+//        if(isAvail(s)){
+//            System.out.println(getRes(s));
+//        }else{
+//            System.out.println("ERROR");
+//        }
+
+        String s = "-12+(4+1)*2^(-3^2--11)-7";
+        System.out.println(calculate(s));
     }
 
     public static boolean isAvail(String s){
@@ -155,4 +154,76 @@ public class Interview_1010 {
         }
         return ans;
     }
+
+    public static void cal(Stack<Integer> nums, Stack<Character> ops){
+        if(nums.isEmpty() || nums.size() < 2) return ;
+        if(ops.isEmpty()) return;
+        int b = nums.pop();
+        int a = nums.pop();
+        char op = ops.pop();
+        int res = 0;
+        if(op == '+') res = a + b;
+        else if(op == '-') res = a - b;
+        else if(op == '*') res = a * b;
+        else if(op == '/') res = a / b;
+        else if(op == '^') res = (int)Math.pow(a, b);
+        nums.push(res);
+    }
+
+    public static int calculate(String s){
+        s = s.replaceAll(" ", "");
+        Stack<Integer> nums = new Stack<>();
+        Stack<Character> ops = new Stack<>();
+        HashMap<Character, Integer> hashMap = new HashMap<>(){};
+        hashMap.put('+', 1);
+        hashMap.put('-', 1);
+        hashMap.put('*', 2);
+        hashMap.put('/', 2);
+        hashMap.put('^', 3);
+        nums.push(0);
+        int n = s.length();
+        for(int i = 0; i < n; i++){
+            char c = s.charAt(i);
+            System.out.println(nums);
+            System.out.println(ops);
+            System.out.println(c);
+            if(c == '('){
+                ops.push(c);
+            }else if(c == ')'){
+                while(!ops.isEmpty()){
+                    if(ops.peek() != '('){
+                        cal(nums, ops);
+                    }else{
+                        ops.pop();
+                        break;
+                    }
+                }
+            }else if(Character.isDigit(c)){
+                int num = 0;
+                while(i < n && Character.isDigit(s.charAt(i))){
+                    num = num * 10 + s.charAt(i) - '0';
+                    i++;
+                }
+                i = i - 1;
+                nums.push(num);
+            }else{
+                if(i > 0 && (s.charAt(i - 1) == '(' || s.charAt(i - 1) == '+' || s.charAt(i - 1) == '-')){
+                    System.out.println("add 0");
+                    nums.push(0);
+                }
+                while(!ops.isEmpty() && ops.peek() != '('){
+                    char prev = ops.peek();
+                    if(hashMap.get(prev) >= hashMap.get(c)){
+                        cal(nums, ops);
+                    }else{
+                        break;
+                    }
+                }
+                ops.push(c);
+            }
+        }
+        while(!ops.isEmpty()) cal(nums, ops);
+        return nums.pop();
+    }
+
 }

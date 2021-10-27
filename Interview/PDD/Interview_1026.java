@@ -1,8 +1,6 @@
 package Interview.PDD;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Interview_1026 {
     static int[] dx = new int[]{-2, -2, -1, -1, 1, 1, 2, 2};
@@ -19,32 +17,34 @@ public class Interview_1026 {
     //
     // 示例1 输入输出示例仅供调试，后台判题数据一般不包含示例
     // 输入
-    //5
-    //4 4
-    //K111
-    //1111
-    //1111
-    //111T
-    //2 3
-    //K00
-    //00T
-    //4 4
-    //K111
-    //1101
-    //1011
-    //111T
-    //3 3
-    //KT1
-    //111
-    //111
-    //3 3
-    //K11
-    //1T1
-    //111
+//5
+//4 4
+//K111
+//1111
+//1111
+//111T
+//2 3
+//K00
+//00T
+//4 4
+//K111
+//1101
+//1011
+//111T
+//3 3
+//KT1
+//111
+//111
+//3 3
+//K11
+//1T1
+//111
     // 输出
-    //1
-    //-1
-    //3
+    // 2
+    // 1
+    // -1
+    // 3
+    // -1
     public static void problem1() {
         Scanner in = new Scanner(System.in);
         int T = in.nextInt();
@@ -94,6 +94,69 @@ public class Interview_1026 {
 
     }
 
+    public static void problem11() {
+        Scanner in = new Scanner(System.in);
+        int T = in.nextInt();
+        for (int t = 0; t < T; t++) {
+            int N = in.nextInt();
+            int M = in.nextInt();
+            char[][] datas = new char[N][M];
+            int[] start = new int[2];
+            int[] end = new int[2];
+            for (int i = 0; i < N; i++) {
+                String s = in.next();
+                for (int j = 0; j < M; j++) {
+                    char c = s.charAt(j);
+                    if (c == 'K') {
+                        start[0] = i;
+                        start[1] = j;
+                    }
+                    if (c == 'T') {
+                        end[0] = i;
+                        end[1] = j;
+                    }
+                    datas[i][j] = c;
+                }
+            }
+//            System.out.println(Arrays.deepToString(datas));
+            problem1_onetime(N, M, start, end, datas);
+        }
+    }
+
+    public static void problem1_onetime(int N, int M, int[] start, int[] end, char[][] datas) {
+
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(start);
+        int[][] ans = new int[N][M];
+        for (int i = 0; i < N; i++) {
+            Arrays.fill(ans[i], Integer.MAX_VALUE);
+        }
+        int step = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            step++;
+            for (int i = 0; i < size; i++) {
+                int[] cur = queue.poll();
+                for (int time = 0; time < 8; time++) {
+                    int next_i = cur[0] + dx[time];
+                    int next_j = cur[1] + dy[time];
+                    if (next_i < 0 || next_i >= N || next_j < 0 || next_j >= M || datas[next_i][next_j] == '0') {
+                        continue;
+                    }
+                    if (next_i == end[0] && next_j == end[1]) {
+                        System.out.println(step);
+                        return;
+                    }
+                    ans[next_i][next_j] = Math.min(ans[next_i][next_j], step);
+                    datas[next_i][next_j] = '0';
+                    queue.add(new int[]{next_i, next_j});
+                }
+            }
+        }
+        System.out.println(-1);
+    }
+
+
     //现有n个数组，每个数组有m个数字。
     // 如果存在两个数组 i, j，分别删掉它们其中某一个数字后（不需要位置互相对应），这两个数组分别用剩下数字组成的和相等，那么则认为这两个数组的为等和数组对。
     // 求这 n 个数组中共有几个等和数组对，并输出答案。
@@ -111,40 +174,40 @@ public class Interview_1026 {
     // 示例1
     // 输入输出示例仅供调试，后台判题数据一般不包含示例
     // 输入
-    // 1
-    //3 3
-    //-7 -5 0
-    //1 0 -5
-    //9 8 -10
+//1
+//3 3
+//-7 -5 0
+//1 0 -5
+//9 8 -10
     //输出
     // 1
     //1 2
     // 说明
     // 第一个数组和第二个数组构成等和数组对，因为第一个数组删除 -7 的和为 -5，第二个数组删除 1 的和为 -5
-    public static void problem2(){
+    public static void problem2() {
         Scanner in = new Scanner(System.in);
         int T = in.nextInt();
-        for(int t = 0; t < T; t++){
+        for (int t = 0; t < T; t++) {
             int n = in.nextInt();
             int m = in.nextInt();
             int[][] a = new int[n][m];
             int[] sum = new int[n];
-            for(int i = 0; i < n; i++){
-                for(int j = 0; j < m; j++){
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
                     a[i][j] = in.nextInt();
                     sum[i] += a[i][j];
                 }
                 Arrays.sort(a[i]);
             }
             ArrayList<int[]> ans = new ArrayList<>();
-            for(int i = 0; i < n; i++){
-                for(int j = i + 1; j < n; j++){
+            for (int i = 0; i < n; i++) {
+                for (int j = i + 1; j < n; j++) {
                     int target = sum[j] - sum[i];
                     boolean flag = false;
-                    for(int x = 0; x < m; x++){
-                        if(flag) break;
-                        for(int y = 0; y < m; y++){
-                            if(a[j][y] - a[i][x] == target){
+                    for (int x = 0; x < m; x++) {
+                        if (flag) break;
+                        for (int y = 0; y < m; y++) {
+                            if (a[j][y] - a[i][x] == target) {
                                 ans.add(new int[]{i + 1, j + 1});
                                 flag = true;
                                 break;
@@ -153,10 +216,56 @@ public class Interview_1026 {
                     }
                 }
             }
-            System.out.println(ans.size());
-            for (int[] an : ans) {
-                System.out.println(an[0] + " " + an[1]);
+            if (ans.size() == 0) {
+                System.out.println(-1);
+            } else {
+                System.out.println(ans.size());
+                for (int[] an : ans) {
+                    System.out.println(an[0] + " " + an[1]);
+                }
             }
+
+        }
+    }
+
+    public static void problem22() {
+        Scanner in = new Scanner(System.in);
+        int T = in.nextInt();
+        for (int t = 0; t < T; t++) {
+            int n = in.nextInt();
+            int m = in.nextInt();
+            int[][] a = new int[n][m];
+            int[] sum = new int[n];
+            HashSet[] hashSets = new HashSet[n];
+            for (int i = 0; i < n; i++) {
+                hashSets[i] = new HashSet<Integer>();
+                for (int j = 0; j < m; j++) {
+                    a[i][j] = in.nextInt();
+                    sum[i] += a[i][j];
+                    hashSets[i].add(a[i][j]);
+                }
+            }
+            ArrayList<int[]> ans = new ArrayList<>();
+            for (int i = 0; i < n; i++) {
+                for (int j = i + 1; j < n; j++) {
+                    int target = sum[j] - sum[i];
+                    for (int x = 0; x < m; x++) {
+                        if (hashSets[i].contains(a[j][x] - target)) {
+                            ans.add(new int[]{i + 1, j + 1});
+                            break;
+                        }
+                    }
+                }
+            }
+            if (ans.size() == 0) {
+                System.out.println(-1);
+            } else {
+                System.out.println(ans.size());
+                for (int[] an : ans) {
+                    System.out.println(an[0] + " " + an[1]);
+                }
+            }
+
         }
     }
 
@@ -170,8 +279,8 @@ public class Interview_1026 {
     // 输出描述:输出为一个非负整数，表示最少需要多少公斤棉花。
     // 示例1 输入输出示例仅供调试，后台判题数据一般不包含示例
     // 输入
-    // 5 7 2
-    //2 5 2 6 7
+//5 7 2
+//2 5 2 6 7
     // 输出
     // 4
     // 说明
@@ -179,26 +288,47 @@ public class Interview_1026 {
     // 第一床被子盖房间2号，花费1公斤棉花。
     // 第二床被子盖房间5、6、7号，花费3公斤棉花。
     // 共计4公斤棉花。
-    public static void problem3(){
+    public static void problem3() {
         Scanner in = new Scanner(System.in);
         int C = in.nextInt();
         int M = in.nextInt();
         int N = in.nextInt();
         int[] a = new int[C];
-        for(int i = 0; i < C; i++){
+        for (int i = 0; i < C; i++) {
             a[i] = in.nextInt();
         }
         Arrays.sort(a);
         int ans = 1;
         int pre = a[0];
-        for(int i = 1; i < C; i++){
-            if(a[i] != pre){
+        for (int i = 1; i < C; i++) {
+            if (a[i] != pre) {
                 pre = a[i];
                 ans++;
             }
         }
         System.out.println(ans);
+    }
 
+
+    public static void problem33() {
+        Scanner in = new Scanner(System.in);
+        int C = in.nextInt();
+        int M = in.nextInt();
+        int N = in.nextInt();
+        int[] a = new int[C];
+        for (int i = 0; i < C; i++) {
+            a[i] = in.nextInt();
+        }
+        Arrays.sort(a);
+        int ans = 1;
+        int pre = a[0];
+        for (int i = 1; i < C; i++) {
+            if (a[i] != pre) {
+                pre = a[i];
+                ans++;
+            }
+        }
+        System.out.println(ans);
     }
 
     // 多多有一张地图，地图由n行m列个格子组成，每个格子有一个分数a[i][j]，达到一个格子时，会获得格子上的分数，每个格子只能走一次。
@@ -210,18 +340,18 @@ public class Interview_1026 {
     // 输出一个整数，表示到达终点时的总分数最高是多少
     // 示例1 输入输出示例仅供调试，后台判题数据一般不包含示例
     // 输入
-    // 3 3
-    //1 1 1
-    //1 1 1
-    //1 1 1
+//3 3
+//1 1 1
+//1 1 1
+//1 1 1
     // 输出
     // 9
     // 示例2
     // 输入
-    // 3 3
-    // 1 -2 -2
-    // 1 1 1
-    // 1 1 1
+//3 3
+//1 -2 -2
+//1 2 1
+//1 1 1
     // 输出
     // 7
     // 备注:
@@ -264,7 +394,41 @@ public class Interview_1026 {
         System.out.println(ans);
     }
 
+    public static void problem44() {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int m = in.nextInt();
+        int[][] a = new int[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                a[i][j] = in.nextInt();
+            }
+        }
+        int[][] dp = new int[n + 2][3];
+        for (int i = 1; i <= n; i++) {
+            dp[i][0] = dp[i - 1][0] + a[i - 1][0];
+            dp[i][1] = dp[i][0];
+            dp[i][2] = dp[i][0];
+        }
+//        System.out.println(Arrays.deepToString(dp));
+        // 这个初始化是必须的，因为第一行或者最后一行只能从左边到达
+        dp[0][0] = Integer.MIN_VALUE;
+        dp[n + 1][1] = Integer.MIN_VALUE;
+        System.out.println(Arrays.deepToString(dp));
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j <= n; j++) {
+                dp[j][0] = Math.max(dp[j - 1][0], dp[j][2]) + a[j - 1][i];
+            }
+            for (int j = n; j >= 1; j--) {
+                dp[j][1] = Math.max(dp[j + 1][1], dp[j][2]) + a[j - 1][i];
+                dp[j][2] = Math.max(dp[j][0], dp[j][1]);
+            }
+        }
+        System.out.println(Arrays.deepToString(dp));
+        System.out.println(dp[n][2]);
+    }
+
     public static void main(String[] args) {
-        problem2();
+        problem44();
     }
 }
